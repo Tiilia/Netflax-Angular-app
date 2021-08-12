@@ -1,3 +1,4 @@
+import { Movie } from './../modules/browse/models/movie';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,11 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class ServiceApiService {
 
-  private _url: string = "http://localhost:300/";
+  private _url: string = "http://localhost:3000";
 
   constructor(private _http: HttpClient) { }
 
-  public getAllMovies(): Observable<any> {
-    return this._http.get(this._url + "/movies")
+  public getAllMovies(): Observable<Movie[]> {
+    return this._http.get<Movie[]>(this._url + "/movies");
+  }
+  public getMovieById(id: number): Observable<Movie> {
+    return this._http.get<Movie>(this._url + `/movies/id/${id}`);
   }
 }
