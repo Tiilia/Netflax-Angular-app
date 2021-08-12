@@ -1,3 +1,4 @@
+import { Genre } from './../modules/browse/models/genre';
 import { Movie } from './../modules/browse/models/movie';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,10 +13,21 @@ export class ServiceApiService {
 
   constructor(private _http: HttpClient) { }
 
+
+  // * get Movies ------------------------------------------
   public getAllMovies(): Observable<Movie[]> {
     return this._http.get<Movie[]>(this._url + "/movies");
   }
   public getMovieById(id: number): Observable<Movie> {
     return this._http.get<Movie>(this._url + `/movies/id/${id}`);
+  }
+  public getAllMovieByGenreId(id: number): Observable<Movie[]> {
+    return this._http.get<Movie[]>(this._url + `/movies/genre/${id}`);
+  }
+
+
+  // * get Genres ------------------------------------------
+  public getAllGenres(): Observable<Genre[]> {
+    return this._http.get<Genre[]>(this._url + "/genres");
   }
 }

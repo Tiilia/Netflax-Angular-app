@@ -1,7 +1,8 @@
 export interface Movie {
-    is: number
+    IdMovie: number
     Title: string
-    trailer: string
-    summary: string
-    shortDescription: string
+    Trailer: string
+    ReleaseDate: string
+    Summary: string
+    ShortDescription: string
 }
