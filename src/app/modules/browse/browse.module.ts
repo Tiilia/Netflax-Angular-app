@@ -6,13 +6,21 @@ import { BrowseRoutingModule } from './browse-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AllMoviesComponent } from './all-movies/all-movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { AllActorsComponent } from './all-actors/all-actors.component';
+import { ActorDetailsComponent } from './actor-details/actor-details.component';
+import { AllComponent } from './all/all.component';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     AllMoviesComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    AllActorsComponent,
+    ActorDetailsComponent,
+    AllComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,

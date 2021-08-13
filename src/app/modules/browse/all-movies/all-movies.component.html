@@ -1,13 +1,18 @@
 <div class="center">
   <mat-button-toggle-group name="genre" #idGenre="matButtonToggleGroup">
     <ng-container *ngFor="let genre of genresList">
-      <mat-button-toggle (click)="filtreMovies(idGenre.value)" [value]="genre.IdGenre">{{genre.Label}}
+      <mat-button-toggle (click)="filtreMovies(idGenre.value)" [value]="genre.IdGenre" #genreBtn>{{genre.Label}}
       </mat-button-toggle>
     </ng-container>
   </mat-button-toggle-group>
 </div>
+<div class="center">
+  <button mat-flat-button (click)="AllMovies()">All Movies</button>
+</div>
+
 
 <ng-container *ngFor="let movie of moviesList">
-  <div class="mat-body-2" *ngIf="movie">{{movie.Title}}</div>
-  <!-- <div *ngIf="!details"></div> -->
+  <div class="mat-body-2" *ngIf="movie"><button mat-button (click)="detailsVisible()">{{movie.Title}}</button></div>
 </ng-container>
+<mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+</mat-paginator>

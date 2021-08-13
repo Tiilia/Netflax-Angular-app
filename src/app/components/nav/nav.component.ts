@@ -17,6 +17,8 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     this.links.push(new Link("Acceuil", "/browse"))
+    // this.links.push(new Link("Movies", "/browse/movies"))
+    // this.links.push(new Link("Actors", "/browse/actors"))
   }
 
 }

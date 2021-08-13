@@ -1,3 +1,4 @@
+import { Actor } from './../modules/browse/models/actor';
 import { Genre } from './../modules/browse/models/genre';
 import { Movie } from './../modules/browse/models/movie';
 import { HttpClient } from '@angular/common/http';
@@ -29,5 +30,10 @@ export class ServiceApiService {
   // * get Genres ------------------------------------------
   public getAllGenres(): Observable<Genre[]> {
     return this._http.get<Genre[]>(this._url + "/genres");
+  }
+
+  // * get Actors -----------------------------------------------
+  public getAllActors(): Observable<Actor[]> {
+    return this._http.get<Actor[]>(this._url + "/cast")
   }
 }
