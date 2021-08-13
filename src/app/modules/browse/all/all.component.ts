@@ -43,14 +43,15 @@ export class AllComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-  public detailsVisible() {
-    this._details.isVisible();
+  //obtenir movie
+  public getMovie(movie: Movie) {
+    this._details.selectMovie(movie);
   }
+  //obtenir id acteur
+
+
+
+
+
+
 }

@@ -1,3 +1,6 @@
+import { Actor } from './../models/actor';
+import { MovieDetailsService } from './../../../services/movie-details.service';
+import { ServiceApiService } from './../../../services/service-api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  public idmovie = this.selectedMovie.IdMovie;
+  public actorsListFromId: Actor[] = []
+
+  public get selectedMovie() {
+    return this._details.selectedMovie;
+  }
+
+  public AllActors() {
+    this._api.getAllActorsByMovieId(this.idmovie).subscribe(res => this.actorsListFromId = res)
+  }
+
+  constructor(private _api: ServiceApiService, private _details: MovieDetailsService) { }
 
   ngOnInit(): void {
+    this.AllActors();
   }
 
 }

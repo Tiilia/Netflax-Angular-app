@@ -7,16 +7,12 @@ import { Movie } from '../modules/browse/models/movie';
 export class MovieDetailsService {
 
   public selectedMovie: any;
-  public visible: boolean = false;
+
 
   constructor() { }
 
   public selectMovie(movie: Movie) {
     this.selectedMovie = movie;
-  }
-
-  public isVisible() {
-    !this.visible;
   }
 
 

@@ -40,7 +40,5 @@ export class AllMoviesComponent implements OnInit {
     this.AllMovies()
     this._api.getAllGenres().subscribe(res => this.genresList = res);
   }
-  public detailsVisible() {
-    this._details.isVisible();
-  }
+
 }

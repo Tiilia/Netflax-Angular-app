@@ -1,1 +1,17 @@
-<p>details works!</p>
+<a mat-flat-button routerLink="/browse">Retour</a>
+<div class="center">
+  <p class="mat-display-2">{{selectedMovie.Title}}</p>
+  <iframe src="https://www.youtube.com/embed/InR865IDDjU?autoplay=1&mute=1">
+    <!-- https://www.youtube.com/watch?v=InR865IDDjU -->
+  </iframe>
+  <p class="mat-body-1">{{selectedMovie.Summary}}</p>
+  <!-- <p class="mat-body-1">{{selectedMovie.IdMovie}} {{idmovie}}</p> -->
+
+  <p>Actors:</p>
+
+  <ng-container *ngFor="let actor of actorsListFromId">
+    <div class="mat-body-2" *ngIf="actor">{{actor.FirstName}}
+      {{actor.LastName}}</div>
+  </ng-container>
+
+</div>

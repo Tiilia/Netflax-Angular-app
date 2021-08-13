@@ -1,9 +1,10 @@
-<nav>
-  <ul>
+<mat-toolbar color="primary" class="navbar">
+  <div>NetFlax</div>
+  <div>
     <ng-container *ngFor="let link of links">
-      <li *ngIf="link.isVisible || link.isVisible === undefined">
+      <span *ngIf="link.isVisible || link.isVisible === undefined">
         <ng-container *ngIf="link.children?.length === 0 || link.children === undefined">
-          <a *ngIf='link.url' [routerLink]="link.url">
+          <a mat-button *ngIf='link.url' [routerLink]="link.url">
             <div>
               {{link.title}}
             </div>
@@ -16,20 +17,20 @@
           <div>
             {{link.title}}
           </div>
-          <ul>
-            <li *ngFor="let child of link.children">
-              <a *ngIf='child.url' [routerLink]="child.url">
-                <div>
-                  {{child.title}}
-                </div>
-              </a>
-              <div *ngIf='!child.url'>
+
+          <span *ngFor="let child of link.children">
+            <a mat-button *ngIf='child.url' [routerLink]="child.url">
+              <div>
                 {{child.title}}
               </div>
-            </li>
-          </ul>
+            </a>
+            <div *ngIf='!child.url'>
+              {{child.title}}
+            </div>
+          </span>
+
         </ng-container>
-      </li>
+      </span>
     </ng-container>
-  </ul>
-</nav>
+  </div>
+</mat-toolbar>

@@ -13,7 +13,6 @@ export class MovieDetailsComponent implements OnInit {
 
   constructor(private _api: ServiceApiService, private _details: MovieDetailsService) { }
 
-  public get visibility() { return this.visible = this._details.visible }
 
   ngOnInit(): void {
 

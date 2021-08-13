@@ -12,7 +12,7 @@
 
 
 <ng-container *ngFor="let movie of moviesList">
-  <div class="mat-body-2" *ngIf="movie"><button mat-button (click)="detailsVisible()">{{movie.Title}}</button></div>
+  <div class="mat-body-2" *ngIf="movie"><button mat-button>{{movie.Title}}</button></div>
 </ng-container>
 <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
 </mat-paginator>
