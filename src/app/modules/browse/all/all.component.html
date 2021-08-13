@@ -23,6 +23,36 @@
     </mat-button-toggle-group>
   </div>
 
+  <!-- carte -->
+  <div class="flex">
+    <ng-container *ngIf="moviesList.length > 0">
+      <ng-container *ngFor="let movie of moviesList">
+        <mat-card class="movie-card">
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{movie.Title}}</mat-card-title>
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt=""> -->
+
+          <img mat-card-image src="https://picsum.photos/id/972/600/400" alt="">
+          <mat-card-content>
+            <p>
+              {{movie.ShortDescription}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-flat-button color="accent" routerLink="/browse/details" (click)="getMovie(movie)">
+              Details
+            </a>
+            <!-- <button mat-button>LIKE</button> -->
+            <!-- <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
+    </ng-container>
+  </div>
+  <!-- carte -->
 
   <!-- Affichage movies -->
   <ng-container *ngFor="let movie of moviesList">
