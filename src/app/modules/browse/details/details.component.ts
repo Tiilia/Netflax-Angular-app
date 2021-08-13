@@ -13,6 +13,7 @@ export class DetailsComponent implements OnInit {
   public idmovie = this.selectedMovie.IdMovie;
   public actorsListFromId: Actor[] = []
 
+
   public get selectedMovie() {
     return this._details.selectedMovie;
   }

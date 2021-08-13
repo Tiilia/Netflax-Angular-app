@@ -10,6 +10,7 @@ import { AllActorsComponent } from './all-actors/all-actors.component';
 import { ActorDetailsComponent } from './actor-details/actor-details.component';
 import { AllComponent } from './all/all.component';
 import { DetailsComponent } from './details/details.component';
+import { DetailsActorComponent } from './details-actor/details-actor.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DetailsComponent } from './details/details.component';
     AllActorsComponent,
     ActorDetailsComponent,
     AllComponent,
-    DetailsComponent
+    DetailsComponent,
+    DetailsActorComponent
   ],
   imports: [
     CommonModule,

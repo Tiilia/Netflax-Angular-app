@@ -48,7 +48,9 @@ export class AllComponent implements OnInit {
     this._details.selectMovie(movie);
   }
   //obtenir id acteur
-
+  public getActor(actor: Actor) {
+    this._details.selectActor(actor);
+  }
 
 
 

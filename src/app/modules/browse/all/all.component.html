@@ -39,7 +39,8 @@
 
 <ng-container *ngIf="actors">
   <ng-container *ngFor="let actor of actorsList">
-    <div class="mat-body-2" *ngIf="actor"><a mat-button routerLink="/browse/details">{{actor.FirstName}}
+    <div class="mat-body-2" *ngIf="actor"><a mat-button routerLink="/browse/detailsActor"
+        (click)="getActor(actor)">{{actor.FirstName}}
         {{actor.LastName}}</a></div>
   </ng-container>
 </ng-container>
@@ -48,8 +49,7 @@
 
 
 
-<!-- 
+
 <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
 
-</mat-paginator> 
--->
+</mat-paginator>

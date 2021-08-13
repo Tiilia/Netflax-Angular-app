@@ -25,6 +25,9 @@ export class ServiceApiService {
   public getAllMovieByGenreId(id: number): Observable<Movie[]> {
     return this._http.get<Movie[]>(this._url + `/movies/genre/${id}`);
   }
+  public getAllMovieByActorId(id: number): Observable<Movie[]> {
+    return this._http.get<Movie[]>(this._url + `/movies/cast/${id}`);
+  }
 
 
   // * get Genres ------------------------------------------

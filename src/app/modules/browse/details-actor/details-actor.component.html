@@ -1,0 +1,15 @@
+<a mat-flat-button routerLink="/browse">Retour</a>
+<div class="center">
+  <p class="mat-display-2">{{selectedActor.FirstName}} {{selectedActor.LastName}}
+  </p>
+
+
+  <!-- <p class="mat-body-1">{{selectedMovie.IdMovie}} {{idmovie}}</p> -->
+
+  <p>Movies:</p>
+
+  <ng-container *ngFor="let movie of moviesListFromId">
+    <div class="mat-body-2" *ngIf="movie">{{movie.Title}}</div>
+  </ng-container>
+
+</div>
