@@ -11,6 +11,7 @@ import { ActorDetailsComponent } from './actor-details/actor-details.component';
 import { AllComponent } from './all/all.component';
 import { DetailsComponent } from './details/details.component';
 import { DetailsActorComponent } from './details-actor/details-actor.component';
+import { UrlVideoPipe } from './pipes/url-video.pipe';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { DetailsActorComponent } from './details-actor/details-actor.component';
     ActorDetailsComponent,
     AllComponent,
     DetailsComponent,
-    DetailsActorComponent
+    DetailsActorComponent,
+    UrlVideoPipe
   ],
   imports: [
     CommonModule,
