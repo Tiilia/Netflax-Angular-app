@@ -14,9 +14,7 @@ export class DetailsComponent implements OnInit {
   public actorsListFromId: Actor[] = []
 
 
-  public get selectedMovie() {
-    return this._details.selectedMovie;
-  }
+
 
   public AllActors() {
     this._api.getAllActorsByMovieId(this.idmovie).subscribe(res => this.actorsListFromId = res)
@@ -28,4 +26,8 @@ export class DetailsComponent implements OnInit {
     this.AllActors();
   }
 
+
+  public get selectedMovie() {
+    return this._details.selectedMovie;
+  }
 }

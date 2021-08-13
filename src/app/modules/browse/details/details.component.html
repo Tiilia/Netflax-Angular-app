@@ -1,9 +1,17 @@
 <a mat-flat-button routerLink="/browse">Retour</a>
+
+
 <div class="center">
   <p class="mat-display-2">{{selectedMovie.Title}}</p>
   <p class="mat-body-1">{{selectedMovie.Trailer | urlVideo}}</p>
-  <iframe src="{{selectedMovie.Trailer | urlVideo}}"></iframe>
-  <iframe src="https://www.youtube.com/embed/vZ734NWnAHA?autoplay=1&mute=1"></iframe>
+
+  <!-- ! problème d'asynchrone.... -->
+  <ng-container *ngIf="selectedMovie.Trailer">
+    <iframe src="{{selectedMovie.Trailer | urlVideo}}"></iframe>
+    <iframe src=""></iframe>
+  </ng-container>
+
+  <!-- <iframe src="https://www.youtube.com/embed/vZ734NWnAHA?autoplay=1&mute=1"></iframe> -->
   <p class="mat-body-1">{{selectedMovie.Summary}}</p>
   <!-- <p class="mat-body-1">{{selectedMovie.IdMovie}} {{idmovie}}</p> -->
 

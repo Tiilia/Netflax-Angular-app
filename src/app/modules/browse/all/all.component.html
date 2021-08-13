@@ -23,9 +23,9 @@
     </mat-button-toggle-group>
   </div>
 
-  <!-- carte -->
-  <div class="flex">
-    <ng-container *ngIf="moviesList.length > 0">
+  <!-- carte ------------------------------------------------------------>
+  <ng-container *ngIf="moviesList.length > 0">
+    <div class="flex">
       <ng-container *ngFor="let movie of moviesList">
         <mat-card class="movie-card">
           <mat-card-header>
@@ -50,12 +50,16 @@
           </mat-card-actions>
         </mat-card>
       </ng-container>
-    </ng-container>
-  </div>
-  <!-- carte -->
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="moviesList.length == 0">
+    <p class="mat-body-1">Loading...</p>
+  </ng-container>
+  <!-- carte ---------------------------------------------------------------------------->
 
   <!-- Affichage movies -->
-  <ng-container *ngFor="let movie of moviesList">
+  <!-- <ng-container *ngFor="let movie of moviesList">
     <span>
       <div class="mat-body-2" *ngIf="movie">
         <a mat-button routerLink="/browse/details" (click)="getMovie(movie)">
@@ -64,7 +68,7 @@
         <div>{{movie.ShortDescription}}</div>
       </div>
     </span>
-  </ng-container>
+  </ng-container> -->
 </ng-container>
 
 <ng-container *ngIf="actors">
