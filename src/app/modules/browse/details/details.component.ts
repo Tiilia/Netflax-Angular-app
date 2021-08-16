@@ -30,4 +30,8 @@ export class DetailsComponent implements OnInit {
   public get selectedMovie() {
     return this._details.selectedMovie;
   }
+
+  public get trailer() {
+    return this.selectedMovie.Trailer;
+  }
 }

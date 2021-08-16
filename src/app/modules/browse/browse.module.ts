@@ -12,6 +12,10 @@ import { AllComponent } from './all/all.component';
 import { DetailsComponent } from './details/details.component';
 import { DetailsActorComponent } from './details-actor/details-actor.component';
 import { UrlVideoPipe } from './pipes/url-video.pipe';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+import { UrlPicturePipe } from './pipes/url-picture.pipe';
+import { AffichageDatePipe } from './pipes/affichage-date.pipe';
+import { AffichageYearPipe } from './pipes/affichage-year.pipe';
 
 
 @NgModule({
@@ -24,7 +28,11 @@ import { UrlVideoPipe } from './pipes/url-video.pipe';
     AllComponent,
     DetailsComponent,
     DetailsActorComponent,
-    UrlVideoPipe
+    UrlVideoPipe,
+    MovieCardComponent,
+    UrlPicturePipe,
+    AffichageDatePipe,
+    AffichageYearPipe
   ],
   imports: [
     CommonModule,

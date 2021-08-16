@@ -19,11 +19,28 @@ export class AllComponent implements OnInit {
   public moviesList: Movie[] = [];
   public genresList: Genre[] = [];
   public actorsList: Actor[] = [];
-
+  public selectedGenre: Set<number> = new Set();
   constructor(private _api: ServiceApiService, private _details: MovieDetailsService) { }
 
   public filtreMovies(id: number) {
-    this._api.getAllMovieByGenreId(id).subscribe(res => this.moviesList = res)
+    if (this.selectedGenre.has(id)) {
+      this.selectedGenre.delete(id);
+    } else {
+      this.selectedGenre.add(id);
+    }
+    console.log(id);
+    console.log(this.selectedGenre);
+    if (this.selectedGenre.size > 0) {
+      this.moviesList = [];
+      for (let genreid of this.selectedGenre) {
+        this._api.getAllMovieByGenreId(genreid).subscribe(res => this.moviesList.push(...res));
+      }
+
+    } else {
+      this.AllMovies();
+    }
+    // this.selectedGenre = new Set(...id)
+
   }
 
   public AllMovies() {
@@ -43,10 +60,7 @@ export class AllComponent implements OnInit {
   }
 
 
-  //obtenir movie
-  public getMovie(movie: Movie) {
-    this._details.selectMovie(movie);
-  }
+
   //obtenir id acteur
   public getActor(actor: Actor) {
     this._details.selectActor(actor);

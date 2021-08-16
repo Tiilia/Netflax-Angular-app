@@ -1,0 +1,21 @@
+<mat-card class="movie-card" *ngIf="movie">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>{{movie.Title}}</mat-card-title>
+    <mat-card-subtitle>{{movie.ReleaseDate | affichageYear}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image [src]="movie.Picture | urlPicture" (error)="setSrc(picture)" alt="" #picture>
+
+  <mat-card-content>
+    <p>
+      {{movie.ShortDescription}}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <a mat-flat-button color="accent" routerLink="/browse/details" (click)="getMovie(movie)">
+      Details
+    </a>
+  </mat-card-actions>
+</mat-card>

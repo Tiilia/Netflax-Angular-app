@@ -11,3 +11,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.color-primary{
+    background-color: #D81B60;
+}
+
+.movie-card {
+    width: 240px;
+    margin: 1.2rem;
+ }
+  
+.header-image {
+background-size: cover;
+}
+
+.block{
+    display: block;
+}
+// .btn-bottom-fix{
+//     position: fixed;
+//     top: 80%;
+//     left: 95%;
+//     z-index: 400;
+// }

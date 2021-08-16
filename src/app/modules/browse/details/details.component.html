@@ -3,23 +3,21 @@
 
 <div class="center">
   <p class="mat-display-2">{{selectedMovie.Title}}</p>
-  <p class="mat-body-1">{{selectedMovie.Trailer | urlVideo}}</p>
+  <p class="mat-body-1">Released on {{selectedMovie.ReleaseDate | affichageDate}}</p>
 
-  <!-- ! problème d'asynchrone.... -->
-  <ng-container *ngIf="selectedMovie.Trailer">
-    <iframe src="{{selectedMovie.Trailer | urlVideo}}"></iframe>
-    <iframe src=""></iframe>
+  <ng-container *ngIf="(selectedMovie.Trailer | urlVideo)  !== ''">
+    <iframe *ngIf="selectedMovie" [src]="trailer |urlVideo"></iframe>
   </ng-container>
 
-  <!-- <iframe src="https://www.youtube.com/embed/vZ734NWnAHA?autoplay=1&mute=1"></iframe> -->
-  <p class="mat-body-1">{{selectedMovie.Summary}}</p>
-  <!-- <p class="mat-body-1">{{selectedMovie.IdMovie}} {{idmovie}}</p> -->
-
-  <p>Cast:</p>
-
-  <ng-container *ngFor="let actor of actorsListFromId">
-    <div class="mat-body-2" *ngIf="actor">{{actor.FirstName}}
-      {{actor.LastName}}</div>
-  </ng-container>
+  <p class="mat-body-2">{{selectedMovie.Summary}}</p>
+  <div>
+    <span>Cast:</span>
+  </div>
+  <span>
+    <ng-container *ngFor="let actor of actorsListFromId">
+      <span class="mat-body-1" *ngIf="actor">
+        {{actor.LastName}} {{actor.FirstName}}, </span>
+    </ng-container>
+  </span>
 
 </div>

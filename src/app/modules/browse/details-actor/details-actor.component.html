@@ -8,8 +8,10 @@
 
   <p>Movies:</p>
 
-  <ng-container *ngFor="let movie of moviesListFromId">
-    <div class="mat-body-2" *ngIf="movie">{{movie.Title}}</div>
-  </ng-container>
+  <div class="flex">
+    <ng-container *ngFor="let movie of moviesListFromId">
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </ng-container>
+  </div>
 
 </div>

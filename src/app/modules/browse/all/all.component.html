@@ -4,20 +4,32 @@
 </div> -->
 
 
-<div class="center">
+<div class="center color-primary nav-plus">
   <mat-button-toggle-group name="movie-actor">
-    <mat-button-toggle (click)="AllMovies()" value="moviesList">All Movies</mat-button-toggle>
-    <mat-button-toggle color="primary" (click)="AllActors()" value="actorsList">All Actors</mat-button-toggle>
+    <mat-button-toggle (click)="AllMovies()" value="moviesList" class="color-primary">All Movies</mat-button-toggle>
+    <mat-button-toggle color="primary" (click)="AllActors()" value="actorsList" class="color-primary">All Actors
+    </mat-button-toggle>
   </mat-button-toggle-group>
 </div>
+
+
+<!-- <div id="homePage"></div>
+
+<a routerLink="#homePage">
+  <button class="btn-bottom-fix" mat-mini-fab color="primary">
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
+</a> -->
+
 
 <ng-container *ngIf="movies">
 
   <!-- Affichage boutons genre -->
   <div class="center">
-    <mat-button-toggle-group name="genre" #idGenre="matButtonToggleGroup">
+    <mat-button-toggle-group name="genre" #idGenre="matButtonToggleGroup" multiple>
       <ng-container *ngFor="let genre of genresList">
-        <mat-button-toggle (click)="filtreMovies(idGenre.value)" [value]="genre.IdGenre" #genreBtn>{{genre.Label}}
+        <mat-button-toggle (change)="filtreMovies($event.value)" [value]="genre.IdGenre" #genreBtn>
+          {{genre.Label}}
         </mat-button-toggle>
       </ng-container>
     </mat-button-toggle-group>
@@ -27,55 +39,29 @@
   <ng-container *ngIf="moviesList.length > 0">
     <div class="flex">
       <ng-container *ngFor="let movie of moviesList">
-        <mat-card class="movie-card">
-          <mat-card-header>
-            <div mat-card-avatar class="header-image"></div>
-            <mat-card-title>{{movie.Title}}</mat-card-title>
-            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-          </mat-card-header>
-          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt=""> -->
-
-          <img mat-card-image src="https://picsum.photos/id/972/600/400" alt="">
-          <mat-card-content>
-            <p>
-              {{movie.ShortDescription}}
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <a mat-flat-button color="accent" routerLink="/browse/details" (click)="getMovie(movie)">
-              Details
-            </a>
-            <!-- <button mat-button>LIKE</button> -->
-            <!-- <button mat-button>SHARE</button> -->
-          </mat-card-actions>
-        </mat-card>
+        <app-movie-card [movie]="movie"></app-movie-card>
       </ng-container>
     </div>
   </ng-container>
 
   <ng-container *ngIf="moviesList.length == 0">
-    <p class="mat-body-1">Loading...</p>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   </ng-container>
   <!-- carte ---------------------------------------------------------------------------->
 
-  <!-- Affichage movies -->
-  <!-- <ng-container *ngFor="let movie of moviesList">
-    <span>
-      <div class="mat-body-2" *ngIf="movie">
-        <a mat-button routerLink="/browse/details" (click)="getMovie(movie)">
-          {{movie.Title}}
-        </a>
-        <div>{{movie.ShortDescription}}</div>
-      </div>
-    </span>
-  </ng-container> -->
 </ng-container>
 
+
+
 <ng-container *ngIf="actors">
-  <ng-container *ngFor="let actor of actorsList">
-    <div class="mat-body-2" *ngIf="actor"><a mat-button routerLink="/browse/detailsActor"
-        (click)="getActor(actor)">{{actor.FirstName}}
-        {{actor.LastName}}</a></div>
+  <ng-container *ngIf="actorsList.length > 0">
+    <ng-container *ngFor="let actor of actorsList">
+      <div class="mat-body-2" *ngIf="actor"><a mat-button routerLink="/browse/detailsActor" (click)="getActor(actor)">
+          {{actor.LastName}} {{actor.FirstName}}</a></div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="actorsList.length == 0">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   </ng-container>
 </ng-container>
 
@@ -84,6 +70,6 @@
 
 
 
-<mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+<!-- <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
 
-</mat-paginator>
+</mat-paginator> -->
