@@ -8,9 +8,8 @@ import { AllActorsComponent } from './all-actors/all-actors.component';
 import { DetailsActorComponent } from './details-actor/details-actor.component';
 
 const routes: Routes = [
-  {
-    path: "", component: AllComponent
-  },
+  { path: "", component: HomeComponent },
+  { path: "all", component: AllComponent },
   { path: "details", component: DetailsComponent },
   { path: "detailsActor", component: DetailsActorComponent },
   // { path: "actors", component: AllActorsComponent },

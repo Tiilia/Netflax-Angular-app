@@ -7,11 +7,10 @@
   <!-- <p class="mat-body-1">{{selectedMovie.IdMovie}} {{idmovie}}</p> -->
 
   <p>Movies:</p>
+</div>
 
-  <div class="flex">
-    <ng-container *ngFor="let movie of moviesListFromId">
-      <app-movie-card [movie]="movie"></app-movie-card>
-    </ng-container>
-  </div>
-
+<div class="flex">
+  <ng-container *ngFor="let movie of moviesListFromId">
+    <app-movie-card [movie]="movie"></app-movie-card>
+  </ng-container>
 </div>

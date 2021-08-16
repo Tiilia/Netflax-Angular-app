@@ -17,7 +17,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 
 .movie-card {
     width: 240px;
-    margin: 1.2rem;
+    margin: 1.8rem;
+    transition-duration: 4s;
+}
+.movie-card:hover{
+    width: 280px;
  }
   
 .header-image {
@@ -27,6 +31,16 @@ background-size: cover;
 .block{
     display: block;
 }
+.big-video{
+    width: 100%;
+    height: 100%;
+
+}
+
+
+
+
+
 // .btn-bottom-fix{
 //     position: fixed;
 //     top: 80%;

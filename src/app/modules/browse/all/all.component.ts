@@ -20,6 +20,7 @@ export class AllComponent implements OnInit {
   public genresList: Genre[] = [];
   public actorsList: Actor[] = [];
   public selectedGenre: Set<number> = new Set();
+
   constructor(private _api: ServiceApiService, private _details: MovieDetailsService) { }
 
   public filtreMovies(id: number) {

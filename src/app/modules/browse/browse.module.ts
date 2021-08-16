@@ -7,7 +7,6 @@ import { HomeComponent } from './home/home.component';
 import { AllMoviesComponent } from './all-movies/all-movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { AllActorsComponent } from './all-actors/all-actors.component';
-import { ActorDetailsComponent } from './actor-details/actor-details.component';
 import { AllComponent } from './all/all.component';
 import { DetailsComponent } from './details/details.component';
 import { DetailsActorComponent } from './details-actor/details-actor.component';
@@ -24,7 +23,6 @@ import { AffichageYearPipe } from './pipes/affichage-year.pipe';
     AllMoviesComponent,
     MovieDetailsComponent,
     AllActorsComponent,
-    ActorDetailsComponent,
     AllComponent,
     DetailsComponent,
     DetailsActorComponent,

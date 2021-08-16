@@ -5,7 +5,7 @@ import { AccountModule } from './modules/account/account.module';
 
 const routes: Routes = [
   {
-    path: "browse", loadChildren:
+    path: "", loadChildren:
       () => import("./modules/browse/browse.module").then(m => BrowseModule)
   },
   {
