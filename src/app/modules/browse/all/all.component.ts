@@ -29,7 +29,7 @@ export class AllComponent implements OnInit {
 
   constructor(private _api: ServiceApiService, private _details: MovieDetailsService) { }
 
-  public filtreMovies(id: number) {
+  public filtreMoviesGenre(id: number) {
     if (this.selectedGenre.has(id)) {
       this.selectedGenre.delete(id);
     } else {

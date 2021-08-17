@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     //! selectionne une id random sur le nombre d'id dans idselection.. n'importe quoi ^^'
     // this._api.getMovieById(this.idAffiche).subscribe(res => this.affiche = res);
 
-    this._api.getMovieById(280217).subscribe(res => this.affiche = res);
+    this._api.getMovieById(324857).subscribe(res => this.affiche = res);
   }
 
 }

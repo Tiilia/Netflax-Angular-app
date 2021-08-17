@@ -22,7 +22,7 @@
   <div class="center">
     <mat-button-toggle-group name="genre" #idGenre="matButtonToggleGroup" multiple>
       <ng-container *ngFor="let genre of genresList">
-        <mat-button-toggle (change)="filtreMovies($event.value)" [value]="genre.IdGenre" #genreBtn>
+        <mat-button-toggle (change)="filtreMoviesGenre($event.value)" [value]="genre.IdGenre" #genreBtn>
           {{genre.Label}}
         </mat-button-toggle>
       </ng-container>
@@ -40,16 +40,18 @@
     </mat-menu>
   </div> -->
 
-  <div>
-    <input type="number" [(ngModel)]="year">
-  </div>
 
-  <form class="example-form">
+  <mat-form-field class="margin">
+    <mat-label>Year Filter</mat-label>
+    <input matInput type="number" [(ngModel)]="year" placeholder="Ex. 2020">
+  </mat-form-field>
+
+  <!-- <form class="example-form">
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>Year Filter</mat-label>
       <input matInput type="number" [(ngModel)]="year" placeholder="Ex. 2020">
     </mat-form-field>
-  </form>
+  </form> -->
 
   <!-- carte ------------------------------------------------------------>
   <ng-container *ngIf="filteredMoviesList.length > 0">
@@ -72,7 +74,7 @@
 <ng-container *ngIf="actors">
   <ng-container *ngIf="actorsList.length > 0">
     <ng-container *ngFor="let actor of actorsList">
-      <div class="mat-body-2" *ngIf="actor"><a mat-button routerLink="/browse/detailsActor" (click)="getActor(actor)">
+      <div class="mat-body-2" *ngIf="actor"><a mat-button routerLink="/detailsActor" (click)="getActor(actor)">
           {{actor.LastName}} {{actor.FirstName}}</a></div>
     </ng-container>
   </ng-container>

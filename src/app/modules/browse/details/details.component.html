@@ -1,15 +1,39 @@
-<a mat-flat-button routerLink="/">Retour</a>
+<div class="margin">
+  <a mat-flat-button routerLink="/all">Retour</a>
+</div>
 
-
-<div class="center">
-  <p class="mat-display-2">{{selectedMovie.Title}}</p>
+<div class="center margin">
+  <p class="mat-display-3">{{selectedMovie.Title}}</p>
   <p class="mat-body-1">Released on {{selectedMovie.ReleaseDate | affichageDate}}</p>
 
-  <ng-container *ngIf="(selectedMovie.Trailer | urlVideo)  !== ''">
-    <iframe *ngIf="selectedMovie" [src]="trailer |urlVideo"></iframe>
-  </ng-container>
+  <div class="margin">
+    <ng-container *ngIf="(selectedMovie.Trailer | urlVideo)  !== ''">
+      <iframe *ngIf="selectedMovie" [src]="trailer |urlVideo"></iframe>
+    </ng-container>
+  </div>
 
   <p class="mat-body-2">{{selectedMovie.Summary}}</p>
+
+  <div class="margin">
+    <span>Genres: </span>
+    <ng-container *ngFor="let genre of genresListFromId">
+
+      <span class="mat-body-1" *ngIf="genre">
+        {{genre.Label}} - </span>
+    </ng-container>
+  </div>
+
+  <div class="margin">
+    <span>Directors: </span>
+    <ng-container *ngFor="let director of directorsListFromId">
+      <span class="mat-body-1" *ngIf="directorsListFromId.length > 1">
+        {{director.LastName}} {{director.FirstName}}, </span>
+      <span class="mat-body-1" *ngIf="directorsListFromId.length == 1">
+        {{director.LastName}} {{director.FirstName}}</span>
+      <span class="mat-body-1" *ngIf="directorsListFromId.length == 0">/</span>
+    </ng-container>
+  </div>
+
   <div>
     <span>Cast:</span>
   </div>
@@ -17,6 +41,15 @@
     <ng-container *ngFor="let actor of actorsListFromId">
       <span class="mat-body-1" *ngIf="actor">
         {{actor.LastName}} {{actor.FirstName}}, </span>
+    </ng-container>
+  </span>
+  <div>
+    <span>Crew:</span>
+  </div>
+  <span>
+    <ng-container *ngFor="let crew of crewsListFromId">
+      <span class="mat-body-1" *ngIf="crew">
+        {{crew.LastName}} {{crew.FirstName}} as {{crew.Job}}, </span>
     </ng-container>
   </span>
 

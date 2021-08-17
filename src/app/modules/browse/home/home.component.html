@@ -1,7 +1,8 @@
 <iframe *ngIf="affiche" [src]="affiche.Trailer |urlVideo" class="big-video"></iframe>
 
-
-<p class="mat-display-2">Selection of the month:</p>
+<div class="margin">
+  <p class="mat-display-2">Selection of the month:</p>
+</div>
 
 <ng-container *ngIf="moviesList.length > 0">
   <div class="flex">
