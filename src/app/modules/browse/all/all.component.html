@@ -1,9 +1,3 @@
-<!-- <div class="center">
-  <button mat-flat-button (click)="AllMovies()">All Movies</button>
-  <button mat-flat-button (click)="AllMovies()">All Actors</button>
-</div> -->
-
-
 <div class="center color-primary nav-plus">
   <mat-button-toggle-group name="movie-actor">
     <mat-button-toggle (click)="AllMovies()" value="moviesList" class="color-primary">All Movies</mat-button-toggle>
@@ -35,16 +29,38 @@
     </mat-button-toggle-group>
   </div>
 
+
+
+  <!-- par date -->
+  <!-- <div>
+    <button mat-button [matMenuTriggerFor]="year">Browse per year</button>
+    <mat-menu #year="matMenu">
+      <button mat-menu-item>2020</button>
+      <button mat-menu-item>1997</button>
+    </mat-menu>
+  </div> -->
+
+  <div>
+    <input type="number" [(ngModel)]="year">
+  </div>
+
+  <form class="example-form">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Year Filter</mat-label>
+      <input matInput type="number" [(ngModel)]="year" placeholder="Ex. 2020">
+    </mat-form-field>
+  </form>
+
   <!-- carte ------------------------------------------------------------>
-  <ng-container *ngIf="moviesList.length > 0">
+  <ng-container *ngIf="filteredMoviesList.length > 0">
     <div class="flex">
-      <ng-container *ngFor="let movie of moviesList">
+      <ng-container *ngFor="let movie of filteredMoviesList">
         <app-movie-card [movie]="movie"></app-movie-card>
       </ng-container>
     </div>
   </ng-container>
 
-  <ng-container *ngIf="moviesList.length == 0">
+  <ng-container *ngIf="filteredMoviesList.length == 0">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   </ng-container>
   <!-- carte ---------------------------------------------------------------------------->

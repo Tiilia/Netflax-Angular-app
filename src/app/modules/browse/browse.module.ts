@@ -15,6 +15,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { UrlPicturePipe } from './pipes/url-picture.pipe';
 import { AffichageDatePipe } from './pipes/affichage-date.pipe';
 import { AffichageYearPipe } from './pipes/affichage-year.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AffichageYearPipe } from './pipes/affichage-year.pipe';
   imports: [
     CommonModule,
     BrowseRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   bootstrap: [HomeComponent]
 })

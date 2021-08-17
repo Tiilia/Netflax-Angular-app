@@ -20,6 +20,12 @@ export class AllComponent implements OnInit {
   public genresList: Genre[] = [];
   public actorsList: Actor[] = [];
   public selectedGenre: Set<number> = new Set();
+  public year: number = 0;
+
+  public get filteredMoviesList(): Movie[] {
+    return (this.year > 1900) ? this.moviesList.filter(m => new Date(m.ReleaseDate).getFullYear() === this.year) : this.moviesList;
+
+  }
 
   constructor(private _api: ServiceApiService, private _details: MovieDetailsService) { }
 
@@ -69,6 +75,23 @@ export class AllComponent implements OnInit {
 
 
 
+  // nop nop la miste des film est effacée au premier loop
+  // public getMoviePerYear(year: string) {
+  //   // this.AllMovies();
+  //   let moviePerYearList: Movie[] = []
+  //   let yearMovie;
+  //   for (let movie of this.moviesList) {
+  //     yearMovie = new Date(movie.ReleaseDate)
+  //     if (Number(year) === yearMovie.getFullYear()) {
+  //       moviePerYearList.push(movie)
+  //     }
+  //   }
+  //   this.moviesList = moviePerYearList;
+  // }
+
+  public getMoviePerYear(year: string) {
+
+  }
 
 
 }

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MaterialModule,
     BrowserModule,
     AccountModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
