@@ -13,7 +13,7 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <a mat-flat-button color="accent" routerLink="/details" (click)="getMovie(movie)">
+    <a mat-flat-button color="accent" [routerLink]="'/detailsMovie/'+ movie.IdMovie" (click)="getMovie(movie)">
       Details
     </a>
   </mat-card-actions>

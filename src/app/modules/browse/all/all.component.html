@@ -57,7 +57,8 @@
   <ng-container *ngIf="filteredMoviesList.length > 0">
     <div class="flex">
       <ng-container *ngFor="let movie of filteredMoviesList">
-        <app-movie-card [movie]="movie"></app-movie-card>
+        <app-movie-card *ngIf="movie" [movie]="movie"></app-movie-card>
+        <mat-progress-bar *ngIf="!movie" mode="indeterminate"></mat-progress-bar>
       </ng-container>
     </div>
   </ng-container>

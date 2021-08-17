@@ -10,8 +10,8 @@ import { DetailsActorComponent } from './details-actor/details-actor.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "all", component: AllComponent },
-  { path: "details", component: DetailsComponent },
-  { path: "detailsActor", component: DetailsActorComponent },
+  { path: "detailsMovie/:id", component: DetailsComponent },
+  { path: "detailsActor/:id", component: DetailsActorComponent },
   // { path: "actors", component: AllActorsComponent },
 
 

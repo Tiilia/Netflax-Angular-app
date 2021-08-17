@@ -1,3 +1,4 @@
+import { Movie } from './../models/movie';
 import { Director } from './../models/director';
 import { Crew } from './../models/crew';
 import { Genre } from './../models/genre';
@@ -5,6 +6,7 @@ import { Actor } from './../models/actor';
 import { MovieDetailsService } from './../../../services/movie-details.service';
 import { ServiceApiService } from './../../../services/service-api.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -13,49 +15,77 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  public idmovie = this.selectedMovie.IdMovie;
+  public selectedMovie?: Movie;
+  public idMovie?: number;
   public actorsListFromId: Actor[] = [];
   public genresListFromId: Genre[] = [];
   public crewsListFromId: Crew[] = [];
   public directorsListFromId: Director[] = [];
 
 
-  public AllActors() {
-    this._api.getAllActorsByMovieId(this.idmovie).subscribe(res => this.actorsListFromId = res);
-  }
-
-  public AllGenres() {
-    this._api.getAllGenresByMovieId(this.idmovie).subscribe(res => this.genresListFromId = res);
-  }
-
-  public AllDirectors() {
-    this._api.getAllDirectorsByMovieId(this.idmovie).subscribe(res => this.directorsListFromId = res);
-  }
-
-  public AllCrews() {
-    this._api.getAllCrewsByMovieId(this.idmovie).subscribe(res => this.crewsListFromId = res);
-    for (let crew of this.crewsListFromId) {
-      if (crew.Job === "Director") {
-        this.crewsListFromId.splice(crew.Idcrew)
-      }
+  public GetMovieById() {
+    if (this.idMovie) {
+      this._api.getMovieById(this.idMovie).subscribe(res => this.selectedMovie = res)
     }
   }
 
-  constructor(private _api: ServiceApiService, private _details: MovieDetailsService) { }
+  public AllActors() {
+    if (this.idMovie) {
+      this._api.getAllActorsByMovieId(this.idMovie).subscribe(res => this.actorsListFromId = res);
+    }
+  }
+
+  public AllGenres() {
+    if (this.idMovie) {
+      this._api.getAllGenresByMovieId(this.idMovie).subscribe(res => this.genresListFromId = res);
+    }
+  }
+
+  public AllDirectors() {
+    if (this.idMovie) {
+      this._api.getAllDirectorsByMovieId(this.idMovie).subscribe(res => this.directorsListFromId = res);
+    }
+  }
+
+  public async AllCrews() {
+    if (this.idMovie) {
+      await this._api.getAllCrewsByMovieId(this.idMovie).subscribe(res => {
+        this.crewsListFromId = res;
+        this.crewsListFromId = this.crewsListFromId.filter(c => c.Job !== "Director");
+      })
+    }
+  }
+
+  constructor(private _api: ServiceApiService, private _details: MovieDetailsService, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this._route.params.subscribe((params) => this.onIdReceive(params))
+
+
+  }
+
+  private onIdReceive(params: Params) {
+    this.idMovie = Number(params['id'])
+    this.GetMovieById()
     this.AllActors();
     this.AllGenres();
     this.AllDirectors();
     this.AllCrews();
   }
-
-
-  public get selectedMovie() {
-    return this._details.selectedMovie;
-  }
+  // public get selectedMovie() {
+  //   return this._details.selectedMovie;
+  // }
 
   public get trailer() {
-    return this.selectedMovie.Trailer;
+    if (this.selectedMovie) {
+      return this.selectedMovie.Trailer;
+    } else {
+      return;
+    }
+  }
+
+  //obtenir id acteur
+  public getActor(actor: Actor) {
+    this._details.selectActor(actor);
   }
 }

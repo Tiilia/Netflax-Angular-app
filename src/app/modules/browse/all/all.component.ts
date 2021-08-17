@@ -20,7 +20,7 @@ export class AllComponent implements OnInit {
   public genresList: Genre[] = [];
   public actorsList: Actor[] = [];
   public selectedGenre: Set<number> = new Set();
-  public year: number = 0;
+  public year: any;
 
   public get filteredMoviesList(): Movie[] {
     return (this.year > 1900) ? this.moviesList.filter(m => new Date(m.ReleaseDate).getFullYear() === this.year) : this.moviesList;
@@ -68,10 +68,11 @@ export class AllComponent implements OnInit {
 
 
 
-  //obtenir id acteur
+  //obtenir acteur
   public getActor(actor: Actor) {
     this._details.selectActor(actor);
   }
+
 
 
 
