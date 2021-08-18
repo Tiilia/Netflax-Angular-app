@@ -1,12 +1,15 @@
-<a mat-flat-button routerLink="/all">Retour</a>
-<div class="center">
-  <p class="mat-display-2">{{selectedActor.FirstName}} {{selectedActor.LastName}}
-  </p>
+<div class="margin">
+  <a mat-flat-button routerLink="/all">Retour</a>
+</div>
 
+<div class="center">
+  <ng-container *ngIf="selectedActor">
+    <p class="mat-display-2">{{selectedActor.LastName}} {{selectedActor.FirstName}}</p>
+  </ng-container>
 
   <!-- <p class="mat-body-1">{{selectedMovie.IdMovie}} {{idmovie}}</p> -->
 
-  <p>Movies:</p>
+  <p class="mat-display-1">Movies:</p>
 </div>
 
 <div class="flex">

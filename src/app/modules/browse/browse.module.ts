@@ -16,6 +16,8 @@ import { UrlPicturePipe } from './pipes/url-picture.pipe';
 import { AffichageDatePipe } from './pipes/affichage-date.pipe';
 import { AffichageYearPipe } from './pipes/affichage-year.pipe';
 import { FormsModule } from '@angular/forms';
+import { NgScrolltopModule } from 'ng-scrolltop';
+
 
 
 @NgModule({
@@ -31,13 +33,15 @@ import { FormsModule } from '@angular/forms';
     MovieCardComponent,
     UrlPicturePipe,
     AffichageDatePipe,
-    AffichageYearPipe
+    AffichageYearPipe,
+
   ],
   imports: [
     CommonModule,
     BrowseRoutingModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    NgScrolltopModule
   ],
   bootstrap: [HomeComponent]
 })

@@ -3,7 +3,7 @@ import { Genre } from './../models/genre';
 import { Movie } from './../models/movie';
 import { MovieDetailsService } from './../../../services/movie-details.service';
 import { ServiceApiService } from './../../../services/service-api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-all',
@@ -11,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all.component.scss']
 })
 export class AllComponent implements OnInit {
+
+  @ViewChild('scroll') scroll?: ElementRef;
+
 
   // public allList: Movie[] | Actor[] = [];
   public movies: boolean = false;
@@ -90,9 +93,17 @@ export class AllComponent implements OnInit {
   //   this.moviesList = moviePerYearList;
   // }
 
-  public getMoviePerYear(year: string) {
+
+
+
+
+
+  public scrollTop() {
+    if (this.scroll) {
+      this.scroll.nativeElement.scrollTop = 0;
+    }
+    console.log("toto");
 
   }
-
 
 }

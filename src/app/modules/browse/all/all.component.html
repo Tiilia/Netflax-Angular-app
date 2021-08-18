@@ -7,13 +7,12 @@
 </div>
 
 
-<!-- <div id="homePage"></div>
+<scrolltop [background]="'#D81B60'"></scrolltop>
+<!-- <button class="btn-bottom-fix" mat-mini-fab color="primary" (click)="scrollTop()">
+  <mat-icon>arrow_upward</mat-icon>
+</button> -->
 
-<a routerLink="#homePage">
-  <button class="btn-bottom-fix" mat-mini-fab color="primary">
-    <mat-icon>arrow_upward</mat-icon>
-  </button>
-</a> -->
+
 
 
 <ng-container *ngIf="movies">
@@ -55,7 +54,7 @@
 
   <!-- carte ------------------------------------------------------------>
   <ng-container *ngIf="filteredMoviesList.length > 0">
-    <div class="flex">
+    <div class="flex" #scroll>
       <ng-container *ngFor="let movie of filteredMoviesList">
         <app-movie-card *ngIf="movie" [movie]="movie"></app-movie-card>
         <mat-progress-bar *ngIf="!movie" mode="indeterminate"></mat-progress-bar>
@@ -71,19 +70,20 @@
 </ng-container>
 
 
-
-<ng-container *ngIf="actors">
-  <ng-container *ngIf="actorsList.length > 0">
-    <ng-container *ngFor="let actor of actorsList">
-      <div class="mat-body-2" *ngIf="actor"><a mat-button routerLink="/detailsActor" (click)="getActor(actor)">
-          {{actor.LastName}} {{actor.FirstName}}</a></div>
+<div class="right margin">
+  <ng-container *ngIf="actors">
+    <ng-container *ngIf="actorsList.length > 0">
+      <ng-container *ngFor="let actor of actorsList">
+        <div class="mat-body-2" *ngIf="actor"><a mat-button [routerLink]="'/detailsActor/'+ actor.IdCast"
+            (click)="getActor(actor)">
+            {{actor.LastName}} {{actor.FirstName}}</a></div>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="actorsList.length == 0">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-container>
   </ng-container>
-  <ng-container *ngIf="actorsList.length == 0">
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  </ng-container>
-</ng-container>
-
+</div>
 
 
 

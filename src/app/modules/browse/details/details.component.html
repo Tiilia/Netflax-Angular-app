@@ -39,7 +39,8 @@
     </div>
     <span>
       <ng-container *ngFor="let actor of actorsListFromId">
-        <span *ngIf="actor"><a mat-button routerLink="/detailsActor/:id" (click)="getActor(actor)" color="accent">
+        <span *ngIf="actor"><a mat-button [routerLink]="'/detailsActor/' + actor.IdCast" (click)="getActor(actor)"
+            color="accent">
             {{actor.LastName}} {{actor.FirstName}}</a></span>
       </ng-container>
     </span>

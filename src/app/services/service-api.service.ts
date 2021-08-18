@@ -45,8 +45,8 @@ export class ServiceApiService {
   public getAllActors(): Observable<Actor[]> {
     return this._http.get<Actor[]>(this._url + "/cast")
   }
-  public getActorById(id: number): Observable<Movie> {
-    return this._http.get<Movie>(this._url + `/cast/id/${id}`);
+  public getActorById(id: number): Observable<Actor> {
+    return this._http.get<Actor>(this._url + `/cast/id/${id}`);
   }
   public getAllActorsByMovieId(id: number): Observable<Actor[]> {
     return this._http.get<Actor[]>(this._url + `/cast/movie/${id}`);
