@@ -1,4 +1,10 @@
 <iframe *ngIf="affiche" [src]="affiche.Trailer |urlVideo" class="big-video"></iframe>
+<div *ngIf="affiche" class="right margin">
+  <a mat-button [routerLink]="'/detailsMovie/' + affiche.IdMovie">
+    {{affiche.Title}}
+  </a>
+</div>
+
 
 <div class="margin">
   <p class="mat-display-2">Selection of the month:</p>

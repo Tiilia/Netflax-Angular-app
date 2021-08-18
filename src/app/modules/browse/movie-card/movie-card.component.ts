@@ -21,4 +21,6 @@ export class MovieCardComponent implements OnInit {
   public setSrc(html: HTMLImageElement) {
     html.src = "../../../assets/missing-picture.png"
   }
+
+
 }

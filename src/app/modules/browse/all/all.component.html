@@ -21,7 +21,8 @@
   <div class="center">
     <mat-button-toggle-group name="genre" #idGenre="matButtonToggleGroup" multiple>
       <ng-container *ngFor="let genre of genresList">
-        <mat-button-toggle (change)="filtreMoviesGenre($event.value)" [value]="genre.IdGenre" #genreBtn>
+        <mat-button-toggle (change)="filtreMoviesGenre($event.value)" [value]="genre.IdGenre"
+          [checked]="genderChecked(genre)" #genreBtn>
           {{genre.Label}}
         </mat-button-toggle>
       </ng-container>

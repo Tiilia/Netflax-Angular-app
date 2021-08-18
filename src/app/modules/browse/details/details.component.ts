@@ -1,3 +1,4 @@
+import { GetGenreService } from './../../../services/get-genre.service';
 import { Movie } from './../models/movie';
 import { Director } from './../models/director';
 import { Crew } from './../models/crew';
@@ -56,7 +57,7 @@ export class DetailsComponent implements OnInit {
     }
   }
 
-  constructor(private _api: ServiceApiService, private _details: MovieDetailsService, private _route: ActivatedRoute) { }
+  constructor(private _api: ServiceApiService, private _details: MovieDetailsService, private _route: ActivatedRoute, private _gender: GetGenreService) { }
 
   ngOnInit(): void {
     this._route.params.subscribe((params) => this.onIdReceive(params))
@@ -88,4 +89,10 @@ export class DetailsComponent implements OnInit {
   public getActor(actor: Actor) {
     this._details.selectActor(actor);
   }
+
+  //enregistrer genre 
+  public getGenre(genre: Genre) {
+    this._gender.getGender(genre);
+  }
+
 }

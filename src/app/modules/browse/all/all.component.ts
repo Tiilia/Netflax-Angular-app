@@ -1,3 +1,4 @@
+import { GetGenreService } from './../../../services/get-genre.service';
 import { Actor } from './../models/actor';
 import { Genre } from './../models/genre';
 import { Movie } from './../models/movie';
@@ -30,7 +31,7 @@ export class AllComponent implements OnInit {
 
   }
 
-  constructor(private _api: ServiceApiService, private _details: MovieDetailsService) { }
+  constructor(private _api: ServiceApiService, private _details: MovieDetailsService, private _genre: GetGenreService) { }
 
   public filtreMoviesGenre(id: number) {
     if (this.selectedGenre.has(id)) {
@@ -104,6 +105,24 @@ export class AllComponent implements OnInit {
     }
     console.log("toto");
 
+  }
+
+  //obtenir genre
+  public get selectedGenderFromService() {
+    return this._genre.selectedGender;
+  }
+  public genderChecked(btnGenre: Genre) {
+    if (this.selectedGenderFromService) {
+      let genre: Genre = this.selectedGenderFromService;
+
+      if (btnGenre.IdGenre == genre.IdGenre) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
 }
