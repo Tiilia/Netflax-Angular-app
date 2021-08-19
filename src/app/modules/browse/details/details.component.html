@@ -51,9 +51,12 @@
   </div>
   <div class="margin justify">
     <span>
-      <ng-container *ngFor="let crew of crewsListFromId">
+      <ng-container *ngFor="let crew of crewsListFromId; let i = index">
         <span class="mat-body-1" *ngIf="crew">
-          {{crew.LastName}} {{crew.FirstName}} as {{crew.Job}}, </span>
+          {{crew.LastName}} {{crew.FirstName}} as {{crew.Job}}
+          <ng-container *ngIf=" i < crewsListFromId.length -1">, </ng-container>
+          <ng-container *ngIf=" i == crewsListFromId.length -1">. </ng-container>
+        </span>
       </ng-container>
     </span>
   </div>

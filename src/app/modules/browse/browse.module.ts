@@ -15,7 +15,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { UrlPicturePipe } from './pipes/url-picture.pipe';
 import { AffichageDatePipe } from './pipes/affichage-date.pipe';
 import { AffichageYearPipe } from './pipes/affichage-year.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgScrolltopModule } from 'ng-scrolltop';
 import { RatingComponent } from './rating/rating.component';
 import { UserComponent } from './user/user.component';
@@ -45,7 +45,8 @@ import { UserComponent } from './user/user.component';
     BrowseRoutingModule,
     MaterialModule,
     FormsModule,
-    NgScrolltopModule
+    NgScrolltopModule,
+    ReactiveFormsModule
   ],
   bootstrap: [HomeComponent]
 })

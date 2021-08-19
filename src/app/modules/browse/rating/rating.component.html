@@ -1,4 +1,9 @@
 <!-- <p>rating works!</p> -->
 <!-- <label>Note:</label> -->
-<input type="number" [(ngModel)]="Score">
-<button (click)="sendNewRating()">Ajouter Note</button>
+<mat-form-field appearance="outline">
+  <mat-label>Note sur 5</mat-label>
+  <input matInput placeholder="4.5" type="number" [(ngModel)]="Score" required [formControl]="control">
+  <mat-error *ngIf="control.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+
+<button mat-button color="primary" (click)="sendNewRating()">Valider</button>

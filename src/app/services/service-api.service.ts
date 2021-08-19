@@ -1,3 +1,4 @@
+import { User } from './../modules/browse/models/user';
 import { Rating } from './../modules/browse/models/rating';
 import { Director } from './../modules/browse/models/director';
 import { Crew } from './../modules/browse/models/crew';
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from '../modules/browse/models/user';
+
 
 
 @Injectable({
@@ -70,8 +71,8 @@ export class ServiceApiService {
     return this._http.get<Rating[]>(this._url + `/rating/movie/${id}`);
   }
   // post rating
-  public PostRating(rating: Rating): Observable<any> {
-    return this._http.post<any>(this._url + `/rating/`, rating).pipe(map(data => data.IdUser));
+  public PostRating(rating: Rating): Observable<string> {
+    return this._http.post<string>(this._url + `/rating/`, rating);
   }
 
 
@@ -84,6 +85,10 @@ export class ServiceApiService {
   }
   public getAllUsersRatingByIdMovie(id: number): Observable<User[]> {
     return this._http.get<User[]>(this._url + `/users/movie/${id}`);
+  }
+  // post user
+  public PostUser(user: User): Observable<string> {
+    return this._http.post<string>(this._url + `/users/`, user);
   }
 
 
