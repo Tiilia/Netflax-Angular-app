@@ -8,6 +8,7 @@ import { MovieDetailsService } from './../../../services/movie-details.service';
 import { ServiceApiService } from './../../../services/service-api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Rating } from '../models/rating';
 
 @Component({
   selector: 'app-details',
@@ -22,6 +23,7 @@ export class DetailsComponent implements OnInit {
   public genresListFromId: Genre[] = [];
   public crewsListFromId: Crew[] = [];
   public directorsListFromId: Director[] = [];
+  public ratingListFromId: Rating[] = [];
 
 
   public GetMovieById() {
@@ -57,6 +59,12 @@ export class DetailsComponent implements OnInit {
     }
   }
 
+  public AllRating() {
+    if (this.idMovie) {
+      this._api.getAllRatingByMovieId(this.idMovie).subscribe(res => this.ratingListFromId = res)
+    }
+  }
+
   constructor(private _api: ServiceApiService, private _details: MovieDetailsService, private _route: ActivatedRoute, private _gender: GetGenreService) { }
 
   ngOnInit(): void {
@@ -72,6 +80,7 @@ export class DetailsComponent implements OnInit {
     this.AllGenres();
     this.AllDirectors();
     this.AllCrews();
+    this.AllRating();
   }
   // public get selectedMovie() {
   //   return this._details.selectedMovie;

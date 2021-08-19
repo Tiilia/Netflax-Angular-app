@@ -31,8 +31,8 @@
           {{director.LastName}} {{director.FirstName}}, </span>
         <span *ngIf="directorsListFromId.length == 1">
           {{director.LastName}} {{director.FirstName}}</span>
-        <span *ngIf="directorsListFromId.length == 0">/</span>
       </ng-container>
+      <span *ngIf="!directorsListFromId || directorsListFromId.length == 0"> / </span>
     </div>
 
     <div class="margin">
@@ -45,9 +45,11 @@
             {{actor.LastName}} {{actor.FirstName}}</a></span>
       </ng-container>
     </span>
-    <div class="margin">
-      <span class="mat-title">Crew:</span>
-    </div>
+  </div>
+  <div class="margin center">
+    <span class="mat-title">Crew:</span>
+  </div>
+  <div class="margin justify">
     <span>
       <ng-container *ngFor="let crew of crewsListFromId">
         <span class="mat-body-1" *ngIf="crew">
@@ -60,3 +62,20 @@
 <ng-container *ngIf="!selectedMovie">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </ng-container>
+
+<div class="margin">
+  <span class="mat-title">Rating:</span>
+</div>
+<ng-container *ngIf="ratingListFromId">
+  <ng-container *ngFor="let rating of ratingListFromId">
+    <div class="margin">
+      {{rating.Score}}/5 published on {{rating.DateRating | date}} by ....
+    </div>
+  </ng-container>
+</ng-container>
+<div class="margin">
+  add rating:
+</div>
+<div class="margin">
+  <app-rating *ngIf="selectedMovie" [IdMovie]="selectedMovie.IdMovie"></app-rating>
+</div>

@@ -1,3 +1,4 @@
+import { RatingComponent } from './rating/rating.component';
 import { DetailsComponent } from './details/details.component';
 import { AllComponent } from './all/all.component';
 import { AllMoviesComponent } from './all-movies/all-movies.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: "all", component: AllComponent },
   { path: "detailsMovie/:id", component: DetailsComponent },
   { path: "detailsActor/:id", component: DetailsActorComponent },
+  { path: "rating", component: RatingComponent }
   // { path: "actors", component: AllActorsComponent },
 
 

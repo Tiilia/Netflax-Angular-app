@@ -1,3 +1,4 @@
+import { Rating } from './../modules/browse/models/rating';
 import { Director } from './../modules/browse/models/director';
 import { Crew } from './../modules/browse/models/crew';
 import { Actor } from './../modules/browse/models/actor';
@@ -6,6 +7,7 @@ import { Movie } from './../modules/browse/models/movie';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -59,5 +61,15 @@ export class ServiceApiService {
   // * get all directors
   public getAllDirectorsByMovieId(id: number): Observable<Director[]> {
     return this._http.get<Director[]>(this._url + `/directors/movie/${id}`);
+  }
+
+
+  // * get/post all rating
+  public getAllRatingByMovieId(id: number): Observable<Rating[]> {
+    return this._http.get<Rating[]>(this._url + `/rating/movie/${id}`);
+  }
+
+  public PostRating(rating: Rating): Observable<any> {
+    return this._http.post<any>(this._url + `/rating/`, rating).pipe(map(data => data.IdUser));
   }
 }
