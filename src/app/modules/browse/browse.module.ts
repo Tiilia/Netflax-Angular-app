@@ -18,6 +18,7 @@ import { AffichageYearPipe } from './pipes/affichage-year.pipe';
 import { FormsModule } from '@angular/forms';
 import { NgScrolltopModule } from 'ng-scrolltop';
 import { RatingComponent } from './rating/rating.component';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -36,6 +37,7 @@ import { RatingComponent } from './rating/rating.component';
     AffichageDatePipe,
     AffichageYearPipe,
     RatingComponent,
+    UserComponent,
 
   ],
   imports: [

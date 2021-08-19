@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { User } from '../modules/browse/models/user';
 
 
 @Injectable({
@@ -68,8 +69,24 @@ export class ServiceApiService {
   public getAllRatingByMovieId(id: number): Observable<Rating[]> {
     return this._http.get<Rating[]>(this._url + `/rating/movie/${id}`);
   }
-
+  // post rating
   public PostRating(rating: Rating): Observable<any> {
     return this._http.post<any>(this._url + `/rating/`, rating).pipe(map(data => data.IdUser));
   }
+
+
+  // * get/post all user
+  public getAllUsers(): Observable<User[]> {
+    return this._http.get<User[]>(this._url + `/users`);
+  }
+  public getUserById(id: number): Observable<User> {
+    return this._http.get<User>(this._url + `/users/id/${id}`);
+  }
+  public getAllUsersRatingByIdMovie(id: number): Observable<User[]> {
+    return this._http.get<User[]>(this._url + `/users/movie/${id}`);
+  }
+
+
+
 }
+

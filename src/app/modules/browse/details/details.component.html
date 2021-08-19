@@ -69,12 +69,19 @@
 <ng-container *ngIf="ratingListFromId">
   <ng-container *ngFor="let rating of ratingListFromId">
     <div class="margin">
-      {{rating.Score}}/5 published on {{rating.DateRating | date}} by ....
+      {{rating.Score}}/5 published on {{rating.DateRating | date}}
+      <ng-container *ngFor="let user of usersListFromId">
+        <ng-container *ngIf="user.IdUser == rating.IdUser">
+          by {{user.FirstName}} {{user.LastName}}
+        </ng-container>
+      </ng-container>
+
+
     </div>
   </ng-container>
 </ng-container>
 <div class="margin">
-  add rating:
+  Add rating:
 </div>
 <div class="margin">
   <app-rating *ngIf="selectedMovie" [IdMovie]="selectedMovie.IdMovie"></app-rating>

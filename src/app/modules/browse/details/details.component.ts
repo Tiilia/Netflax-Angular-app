@@ -1,3 +1,4 @@
+import { User } from './../models/user';
 import { GetGenreService } from './../../../services/get-genre.service';
 import { Movie } from './../models/movie';
 import { Director } from './../models/director';
@@ -24,6 +25,7 @@ export class DetailsComponent implements OnInit {
   public crewsListFromId: Crew[] = [];
   public directorsListFromId: Director[] = [];
   public ratingListFromId: Rating[] = [];
+  public usersListFromId: User[] = [];
 
 
   public GetMovieById() {
@@ -61,9 +63,17 @@ export class DetailsComponent implements OnInit {
 
   public AllRating() {
     if (this.idMovie) {
-      this._api.getAllRatingByMovieId(this.idMovie).subscribe(res => this.ratingListFromId = res)
+      this._api.getAllRatingByMovieId(this.idMovie).subscribe(res => this.ratingListFromId = res);
     }
   }
+
+  public AllUsers() {
+    if (this.idMovie) {
+      this._api.getAllUsersRatingByIdMovie(this.idMovie).subscribe(res => this.usersListFromId = res);
+    }
+  }
+
+
 
   constructor(private _api: ServiceApiService, private _details: MovieDetailsService, private _route: ActivatedRoute, private _gender: GetGenreService) { }
 
@@ -81,7 +91,9 @@ export class DetailsComponent implements OnInit {
     this.AllDirectors();
     this.AllCrews();
     this.AllRating();
+    this.AllUsers();
   }
+
   // public get selectedMovie() {
   //   return this._details.selectedMovie;
   // }
