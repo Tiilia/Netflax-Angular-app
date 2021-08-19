@@ -9,6 +9,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 .right{
     text-align: right;
 }
+.justify{
+    text-align: justify;
+}
 .flex{
     display: flex;
     flex-wrap: wrap;
@@ -18,18 +21,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
     background-color: #D81B60;
 }
 
-.movie-card {
-    width: 240px;
-    margin: 1.8rem;
-    transition-duration: 4s;
-}
-.movie-card:hover{
-    width: 280px;
- }
-  
-.header-image {
-background-size: cover;
-}
+
 
 .block{
     display: block;
