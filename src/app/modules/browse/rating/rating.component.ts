@@ -12,7 +12,7 @@ export class RatingComponent implements OnInit {
   @Input() IdMovie?: number;
 
   // public IdMovie: number = 0
-  public IdUser: number = 3;
+  public IdUser: number = 20;
   public Score?: number;
   public DateRating: Date = new Date();
 

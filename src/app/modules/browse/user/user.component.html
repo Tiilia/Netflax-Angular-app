@@ -1,44 +1,63 @@
+<a mat-button color="primary" routerLink="/user/userlist">All Users</a>
+
 <!-- <p>user works!</p> -->
 <fieldset class="margin">
   <legend class="mat-display-1">Create account</legend>
   <form class="margin-left" [formGroup]="formGroup" (ngSubmit)="submitForm()">
-    <div>
+    <div class="margin">
       <mat-form-field appearance="outline">
         <mat-label>FirstName</mat-label>
-        <input matInput placeholder="John" type="text" formControlName="FirstName" required>
-        <mat-error *ngIf="!formGroup.get('FirstName')">erreur</mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>LastName</mat-label>
-        <input matInput placeholder="Doe" type="text" formControlName="LastName" required>
-        <!-- <mat-error *ngIf="formGroup.invalid">{{getErrorMessage()}}</mat-error> -->
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>Login</mat-label>
-        <input matInput placeholder="Toto" type="text" formControlName="Login">
-        <mat-error *ngIf="formGroup.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="Password" required>
-        <mat-error *ngIf="formGroup.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="tutu@toto.com" type="text" formControlName="Email" required>
-        <mat-error *ngIf="formGroup.invalid">{{getErrorMessage()}}</mat-error>
+        <input matInput placeholder="John" type="text" formControlName="firstName" required>
+        <mat-error *ngIf="formGroup.invalid">{{getErrorMessage('firstName')}}</mat-error>
       </mat-form-field>
     </div>
     <div class="margin">
-      <input type="submit" [disabled]="!formGroup.valid" value="Create">
+      <mat-form-field appearance="outline">
+        <mat-label>LastName</mat-label>
+        <input matInput placeholder="Doe" type="text" formControlName="lastName" required>
+        <mat-error *ngIf="formGroup.invalid">{{getErrorMessage('lastName')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="margin">
+      <mat-form-field appearance="outline">
+        <mat-label>Login</mat-label>
+        <input matInput placeholder="Toto" type="text" formControlName="login">
+        <mat-error *ngIf="formGroup.invalid">{{getErrorMessage('login')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="margin">
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        <mat-error *ngIf="formGroup.invalid">{{getErrorMessage('password')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="margin">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="tutu@toto.com" type="text" formControlName="email" required>
+        <mat-error *ngIf="formGroup.invalid">{{getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="margin">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid">Validate</button>
+      <!-- <input type="submit" [disabled]="!formGroup.valid" value="Create"> -->
     </div>
   </form>
 </fieldset>
+<div *ngIf="formvValide" class="margin mat-body-2">ok</div>
+
+
+<!-- <div class="margin">
+  <form [formGroup]="formGroup">
+    <div>
+      <label>Email</label>
+      <input type="email" formControlName="email" placeholder="tutu@toto.com">
+    </div>
+    <div>
+      <label>PassWord</label>
+      <input type="password" formControlName="password" placeholder="myPassword123,">
+    </div>
+    <button type="submit">Validate</button>
+  </form>
+</div> -->

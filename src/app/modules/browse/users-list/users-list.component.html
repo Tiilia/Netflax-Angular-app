@@ -1,0 +1,9 @@
+<a mat-button color="primary" routerLink="/user">Create User</a>
+<div class="margin">
+  <div class="mat-display-1">All users</div>
+  <ng-container *ngFor="let user of usersList">
+    <div class="margin mat-title">
+      <p>{{user.FirstName}} {{user.LastName}}<br> login: {{user.Login}}</p>
+    </div>
+  </ng-container>
+</div>

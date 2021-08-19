@@ -10,9 +10,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class UserComponent implements OnInit {
 
+  public formvValide: boolean = false;
+
   public UsersList: User[] = [];
 
-  public IdUser: number = 4;
+  public IdUser: number = 11;
   public FirstName: string = "";
   public LastName: string = "";
   public Login: string = "";
@@ -29,56 +31,80 @@ export class UserComponent implements OnInit {
   public City?: number;
   public Picture?: string;
 
-  public formGroup: FormGroup = this._formBuilder.group([
-    { FirstName: ["John", Validators.required] },
-    { LastName: [null, Validators.required] },
-    { Login: [null, Validators.required] },
-    { Password: [null, Validators.required] },
-    { Email: [null, [Validators.required, Validators.email]] }
-  ])
+
+
+
+
 
   // public control = new FormControl(null, [Validators.required, Validators.email]);
 
-  constructor(private _api: ServiceApiService, private _formBuilder: FormBuilder) { }
+  constructor(private _api: ServiceApiService, private _formBuilder: FormBuilder) {
 
-  public getErrorMessage() {
-    if (this.formGroup.hasError('required')) {
+
+  }
+  public formGroup = new FormGroup({
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    login: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
+    // password: new FormControl('', [Validators.required, Validators.pattern('(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"')])
+  })
+
+
+  public getErrorMessage(value: string) {
+    if (this.formGroup.get(value)?.hasError('required')) {
       return 'You must enter a value';
+    } else if (this.formGroup.get(value)?.hasError('pattern')) {
+      return `
+      min 8 characters,
+      min 1 number,
+      uppercase and lowercase,
+      min 1 special character`
     }
-    return this.formGroup.hasError('email') ? 'Not a valid email' : '';
+    {
+    }
+    return this.formGroup.get(value)?.hasError('email') ? 'Not a valid email' : '';
   }
 
-  public AllUser() {
-    this._api.getAllUsers().subscribe(res => this.UsersList = res);
-  }
-  public getUserId() {
-    if (this.UsersList.length > 0) {
-      this.IdUser = this.UsersList.length + 1
-    }
-  }
+  // public AllUser() {
+  //   this._api.getAllUsers().subscribe(res => this.UsersList = res);
+  // }
+  // public getUserId() {
+  //   if (this.UsersList.length > 0) {
+  //     this.IdUser = this.UsersList.length + 1
+  //   }
+  // }
 
   public sendNewRating() {
     this._api.PostUser({ IdUser: this.IdUser, FirstName: this.FirstName, LastName: this.LastName, Login: this.Login, Password: this.Password, Email: this.Email }).subscribe(data => console.log(data))
   }
 
   public submitForm() {
-    let value = this.formGroup.value
-    this.FirstName = value["FirstName"]
-    this.LastName = value["LastName"]
-    this.Login = value["Login"]
-    this.Password = value["Password"]
-    this.Email = value["Email"]
+    let values = this.formGroup.value;
+    this.FirstName = values["firstName"]
+    this.LastName = values["lastName"]
+    this.Login = values["login"]
+    this.Password = values["password"]
+    this.Email = values["email"]
 
     this.sendNewRating();
+
+    this.formvValide = true;
   }
+
+
   ngOnInit(): void {
+
     // this.AllUser();
     // this.getUserId();
 
-    if (this.IdUser > 0) {
-      console.log(this.IdUser);
-    }
+
+    console.log(this.IdUser);
+
 
   }
+
+
 
 }

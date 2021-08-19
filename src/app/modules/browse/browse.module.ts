@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgScrolltopModule } from 'ng-scrolltop';
 import { RatingComponent } from './rating/rating.component';
 import { UserComponent } from './user/user.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 
 
@@ -38,6 +39,7 @@ import { UserComponent } from './user/user.component';
     AffichageYearPipe,
     RatingComponent,
     UserComponent,
+    UsersListComponent,
 
   ],
   imports: [
