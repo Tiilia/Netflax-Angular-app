@@ -3,7 +3,10 @@
   <div class="mat-display-1">All users</div>
   <ng-container *ngFor="let user of usersList">
     <div class="margin mat-title">
-      <p>{{user.FirstName}} {{user.LastName}}<br> login: {{user.Login}}</p>
+      <p>{{user.IdUser}} {{user.FirstName}} {{user.LastName}}<br> login: {{user.Login}}</p>
+      <ng-container *ngIf="user.IdUser == 10"><a mat-button color="accent" routerLink="/user/userlist/10">details</a>
+      </ng-container>
+
     </div>
   </ng-container>
 </div>

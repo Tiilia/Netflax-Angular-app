@@ -20,6 +20,7 @@ import { NgScrolltopModule } from 'ng-scrolltop';
 import { RatingComponent } from './rating/rating.component';
 import { UserComponent } from './user/user.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { UsersDetailsComponent } from './users-details/users-details.component';
 
 
 
@@ -40,6 +41,7 @@ import { UsersListComponent } from './users-list/users-list.component';
     RatingComponent,
     UserComponent,
     UsersListComponent,
+    UsersDetailsComponent,
 
   ],
   imports: [

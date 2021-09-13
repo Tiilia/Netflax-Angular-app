@@ -1,0 +1,30 @@
+<!-- <p>users-details works!</p> -->
+<ng-container *ngIf="user">
+
+  <div class="margin">
+    <p class="margin mat-display-1">{{user.FirstName}} {{user.LastName}}</p>
+    <img class="image"
+      src="https://avatars.githubusercontent.com/u/83823545?s=400&u=30115cc8d5ed9157c9535ff007832d2aba9688a5&v=4"
+      alt="avatar">
+    <p class="mat-title">Login: {{user.Login}}</p>
+    <p class="mat-title">Website: {{user.WebSite}}</p>
+    <p class="mat-title">Twitter: {{user.Twitter}}</p>
+    <p class="mat-title">Instagram: {{user.Instagram}}</p>
+    <p class="mat-title">Facebook: {{user.Facebook}}</p>
+    <p class="mat-title">Email: {{user.Email}}</p>
+    <p class="mat-title">Phone: {{user.Phone}}</p>
+    <p class="mat-title">Mobile: {{user.Mobile}}</p>
+    <p class="mat-title">Country: {{user.Country}}</p>
+    <p class="mat-title">City: {{user.City}}</p>
+  </div>
+</ng-container>
+
+<div class="margin">
+  <p class="margin mat-display-1">Favorites Movies</p>
+  <div class="flex">
+    <ng-container *ngFor="let movie of moviesList">
+
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </ng-container>
+  </div>
+</div>

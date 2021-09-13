@@ -1,3 +1,4 @@
+import { UsersDetailsComponent } from './users-details/users-details.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserComponent } from './user/user.component';
 import { RatingComponent } from './rating/rating.component';
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: "detailsActor/:id", component: DetailsActorComponent },
   // { path: "rating", component: RatingComponent }
   { path: "user", component: UserComponent },
-  { path: "user/userlist", component: UsersListComponent }
+  { path: "user/userlist", component: UsersListComponent },
+  { path: "user/userlist/10", component: UsersDetailsComponent }
   // { path: "actors", component: AllActorsComponent },
 
 
